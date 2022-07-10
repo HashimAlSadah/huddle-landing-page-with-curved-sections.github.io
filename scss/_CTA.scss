@@ -1,0 +1,98 @@
+@use "./config";
+@use "./mixin";
+
+.CTA{
+    margin-top: 5em;
+}
+
+.CTA .title{
+    font-size: 1.6rem;
+}
+
+.CTA .intro-body{
+    margin: 2em auto 4em auto;
+    max-width: 500px;
+}
+
+
+.hero{
+    margin: 6em 0 4em 0;
+}
+
+.people-count, .message-count{
+    position: relative;
+    width: max-content;
+    margin: auto;
+}
+
+.people-count::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -1.2em;
+    width: 28px;
+    height: 28px;
+    background-image: url("../images/icon-communities.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.message-count::before{
+    @extend .people-count, ::before;
+    width: 23px;
+    height: 23px;
+    top: -1em;
+    background-image: url("../images/icon-messages.svg");
+}
+
+.stats div + div{
+    margin-top: 4em;
+}
+
+.stats h2{
+    font-size: 3.1rem;
+    font-family: config.$body-font-family;
+}
+
+.message-count h2{
+    font-size: 2.8rem;
+}
+
+.stats p{
+    font-size: 0.75rem;
+    color: rgba(black, 0.5);
+}
+
+@include mixin.screenMinWidthStyle(config.$first-break-point){
+    .CTA .title{
+        font-size: clamp(1.6rem, 2.8vw, 2.5rem);
+    }
+
+    .hero{
+        width: 80%;
+        max-width: 900px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .stats{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(10em, 40%, 30em);
+        margin: 2em 0 15em 0;
+    }
+
+    .people-count, .message-count{
+        margin: 0;
+    }
+
+    .stats > div + div{
+        margin-top: 0;
+    }
+
+    .stats h2{
+        font-size: 4rem;
+    }
+}
+

@@ -1,0 +1,44 @@
+@use "./config";
+@use "./mixin";
+
+section .section__image{
+    width: 85%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+section .section-text{
+    margin: 4em auto 0 auto;
+    max-width: 500px;
+}
+
+section h2{
+    font-size: 1.25rem;
+    margin-bottom: 0.5em;
+}
+
+@include mixin.screenMinWidthStyle(config.$first-break-point){
+    .row-section{
+        display: flex;
+        align-items: center;
+        gap: 3em;
+
+        & > *{
+            flex: 1 1 50%;
+        }
+    }
+
+    section .content-wraper{
+        @extend .row-section;
+        flex-direction: row-reverse;
+    }
+
+    section .section-text{
+        text-align: left;
+    }
+
+    section h2{
+        font-size: clamp(1.5rem, 2.8vw, 2rem);
+    }
+}
+

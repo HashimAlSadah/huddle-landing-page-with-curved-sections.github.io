@@ -1,0 +1,200 @@
+@use "./config";
+@use "./mixin";
+
+.footer{
+    position: relative;
+    background-color: config.$very-dark-cyan;
+    color: rgba(255, 255, 255, 0.974);
+    padding: 4.5em 2.5em 0em 2.5em;
+    margin-top: 16em;
+}
+
+
+.footer::before{
+    content: "";
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    top: 0;
+    height: 12vw;
+    background-image: url("../images/mobile-images/bg-footer-top-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: translateY(-100%);
+}
+
+.footer-wraper{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.newsletter{
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-family: config.$body-font-family;
+    margin-bottom: 0.75em;
+}
+
+.footer-text{
+    line-height: 1.7;
+    max-width: 600px;
+}
+
+
+
+.footer form{
+    margin-top: 1em;
+}
+
+.footer input{
+    display: block;
+    border: none;
+    outline: none;
+    width: 100%;
+    max-width: 300px;
+    height: 40px;
+    border-radius: 6px;
+    padding: 0 1em;
+    margin-left: auto;
+    font-size: 1.0rem;
+
+    &.active,
+    &.active:focus{
+        border: 1px solid red;
+    }
+}
+
+.error-message{
+    display: none;
+    margin-top: 0.5em;
+    color: red;
+    text-align: right;
+    margin-right: 0.5em;
+}
+
+.error-message.active{
+    display: block;
+}
+
+.footer input:active,
+.footer input:focus,
+.subscribe:focus
+.subscribe:active{
+    outline: none;
+    border: none;
+}
+
+.footer__logo{
+    max-width: 200px;
+    margin-top: 5em;
+    margin-bottom: 0.5em;
+}
+
+.footer__logo img{
+    filter: brightness(0) invert(1);
+}
+
+.contact-us{
+    margin: 2.75em 0;
+}
+
+.contact-us img{
+    max-width: 20px;
+}
+
+.contact-us > div{
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+}
+
+.contact-us > div + div{
+    margin-top: 1.25em;
+} 
+
+.social-media{
+    margin-bottom: 1.5em;
+}
+
+.social-media i{
+    font-size: 1.7rem;
+}
+
+.social-media > i + i{
+    margin-left: 0.5em;
+}
+
+@include mixin.screenMinWidthStyle(config.$footer-first-break-point){
+    
+    .footer input, .subscribe{
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    .error-message{
+        text-align: left;
+        margin-left: 0.5em;
+    }
+}
+
+@include mixin.screenMinWidthStyle(config.$footer-second-break-point){
+
+    .footer{
+        margin-top: 20em;
+        padding: 2.5em 5em 0em 5em; 
+    }
+
+    .footer::before{
+        background-image: url("../images/desktop-images/bg-footer-top-desktop.svg");
+    }
+
+    .footer p{
+        font-size: 0.85rem;
+    }
+
+    .footer__logo{
+        margin-top: 0;
+        margin-bottom: 1.25em;
+    }
+
+    .footer .row{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        gap: 2em;
+    }
+
+    .right-column .footer-text{
+        max-width: 330px;
+    }
+
+    .left-column .footer-text{
+        max-width: 300px;
+    }
+
+    .footer form{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1em;
+        margin-top: 2em;
+    }
+
+    .footer input{
+        margin-left: 0;
+        width: 280px;
+    }
+
+    .subscribe{
+        margin: 0;
+        margin-right: auto;
+    }
+
+    .social-media i{
+        cursor: pointer;
+        transition: color 0.4s ease;
+        &:hover{
+            color: rgb(35, 200, 250);
+        }
+    }
+}

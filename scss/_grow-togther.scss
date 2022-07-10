@@ -1,0 +1,38 @@
+@use "./config";
+@use "./mixin";
+
+.grow-togther::before,
+.grow-togther::after{
+    content: "";
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    top: 0;
+    height: 30vw;
+    background-image: url("../images/mobile-images/bg-section-top-mobile-1.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: translateY(-100%);
+}
+
+.grow-togther::after{ 
+    top: auto;
+    bottom: 0;
+    height: clamp(100px, 15vw, 150px);
+    background-image: url("../images/mobile-images/bg-section-bottom-mobile-1.svg");
+    transform: translateY(100%);
+}
+
+@include mixin.screenMinWidthStyle(config.$first-break-point){
+    .grow-togther::before{
+        background-image: url("../images/desktop-images/bg-section-top-desktop-1.svg");
+        height: 150px;
+        background-size: cover;
+    }
+
+    .grow-togther::after{
+        background-image: url("../images/desktop-images/bg-section-bottom-desktop-1.svg");
+        background-size: cover;
+    }
+}
+

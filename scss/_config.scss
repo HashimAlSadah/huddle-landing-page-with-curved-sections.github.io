@@ -1,0 +1,60 @@
+@use "./mixin";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@700&display=swap');
+
+$pink: hsl(322, 100%, 66%);
+$light-pink: hsl(321, 100%, 78%);
+$light-red: hsl(0, 100%, 63%);
+$very-dark-cyan: hsl(192, 100%, 9%);
+$very-pale-blue: hsl(207, 100%, 98%);
+$headers-font-family: 'Poppins', sans-serif;
+$body-font-family: 'Open Sans', sans-serif;
+$footer-first-break-point: 500px;
+$footer-second-break-point: 950px;
+$first-break-point: 800px;
+
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+h1, h2{
+    font-family: $headers-font-family;
+}
+
+p:not(.attribution){
+    font-family: $body-font-family;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    @include mixin.screenMinWidthStyle($first-break-point){
+        font-size: 1rem;
+    }
+}
+
+img{
+    display: block;
+    width: 100%;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.header, .main{
+    color: $very-dark-cyan;
+}
+
+.main{
+    padding: 0 2.5em;
+    text-align: center;
+}
+
+@include mixin.screenMinWidthStyle($first-break-point){
+    .mobile{
+        display: none;
+    }
+}

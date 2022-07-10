@@ -1,0 +1,17 @@
+@use "./config";
+
+.grow-togther,
+.your-users{
+    position: relative;
+    margin: 8em -2.5em 8em -2.5em;
+    background-color: config.$very-pale-blue;
+}
+
+.your-users{
+    margin: 14em -2.5em 11em -2.5em;   
+}
+
+section .content-wraper{
+    padding: 4em 2.5em;
+    width: 100%;
+}
